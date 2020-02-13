@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Menu from './components/Menu';
 import { Navbar, NavbarBrand } from 'reactstrap';
 
 class App extends React.Component {
@@ -13,6 +11,7 @@ class App extends React.Component {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
+        <Menu />
       </div>
     );    
   }
