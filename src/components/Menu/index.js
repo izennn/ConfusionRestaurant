@@ -1,6 +1,5 @@
 import React from 'react'; // allows me to create React component
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,
-    CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 import DishDetail from '../DishDetail';
 
 class Menu extends React.Component {
@@ -9,11 +8,9 @@ class Menu extends React.Component {
     this.state = {
       selectedDish: null,
     }
-    console.log("Menu component constructing")
   }
 
   componentDidMount() {
-    console.log("Menu component did mount");
   }
 
   onDishSelect(dish) {
@@ -37,7 +34,6 @@ class Menu extends React.Component {
       )
     });    
 
-    console.log("Menu component rendering")
     return (
       <div className="container">
         <div className="row">
