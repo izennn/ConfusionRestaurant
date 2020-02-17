@@ -46,16 +46,14 @@ class DishDetail extends React.Component {
     const { dish } = this.props;
 
     return (
-      <React.Fragment>
+      <div className="row">
         <div className="col-12 col-md-5 m-1">
           <DetailCard dish={dish} />
         </div>   
         <div className="col-12 col-md-5 m-1">
           <Comments dish={dish} />
-        </div>   
-      </React.Fragment>
-
-
+        </div>         
+      </div>
     )
   }
 }
