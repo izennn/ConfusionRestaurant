@@ -1,6 +1,6 @@
 import React from 'react'; // allows me to create React component
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
-import DishDetail from '../DishDetail';
+import DishdetailComponent from '../DishdetailComponent';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class Menu extends React.Component {
           {menu}
         </div>
         <div className="row">
-          <DishDetail dish={selectedDish} />
+          <DishdetailComponent dish={selectedDish} />
         </div>
       </div>
     );
