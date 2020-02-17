@@ -1,6 +1,7 @@
 import React from 'react'; // allows me to create React component
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle } from 'reactstrap';
+import DishDetail from '../DishDetail';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -8,7 +9,11 @@ class Menu extends React.Component {
     this.state = {
       selectedDish: null,
     }
-    this.onDishSelect = this.onDishSelect.bind(this);
+    console.log("Menu component constructing")
+  }
+
+  componentDidMount() {
+    console.log("Menu component did mount");
   }
 
   onDishSelect(dish) {
@@ -17,27 +22,7 @@ class Menu extends React.Component {
     });
   }
 
-  renderDish(dish) {
-    // first check if dish === null
-    if (dish !== null) {
-      return (
-        <Card>
-            <CardImg wdith="100%" src={dish.image} alt={dish.name} />
-            <CardBody>
-              <CardTitle>{dish.name}</CardTitle>
-              <CardText>{dish.description}</CardText>
-            </CardBody>
-        </Card>  
-      )
-    } else {
-      return (
-        <div></div>
-      )
-    }
-  }
-
   render() {
-
     const { selectedDish } = this.state;
     const menu = this.props.dishes.map(dish => {
       return (
@@ -52,13 +37,14 @@ class Menu extends React.Component {
       )
     });    
 
+    console.log("Menu component rendering")
     return (
       <div className="container">
         <div className="row">
           {menu}
         </div>
         <div className="row">
-          {this.renderDish(selectedDish)}
+          <DishDetail dish={selectedDish} />
         </div>
       </div>
     );
