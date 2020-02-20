@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './components/Menu';
+import Menu from './components/MenuComponent.js';
 import { Navbar, NavbarBrand } from 'reactstrap';
 
 import { DISHES } from './shared/dishes';

@@ -1,6 +1,6 @@
 import React from 'react'; // allows me to create React component
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
-import DishDetail from '../DishdetailComponent.js';
+import DishDetail from './DishdetailComponent.js';
 
 class Menu extends React.Component {
   constructor(props) {
