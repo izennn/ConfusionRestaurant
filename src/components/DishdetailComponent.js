@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap'; 
 
-const RenderDetails = (props) => {
+function RenderDetails(props) {
   const { dish } = props;
   if (dish !== null && dish !== undefined) return (
     // Task 2
@@ -18,7 +18,7 @@ const RenderDetails = (props) => {
   )
 }
 
-const RenderComments = (props) => {
+function RenderComments(props) {
   const { dish } = props;
 
   if (dish !== null && dish !== undefined) return (
@@ -41,23 +41,20 @@ const RenderComments = (props) => {
   )
 }
 
-class DishDetail extends React.Component {
-  render() {
-    const { dish } = this.props;
+const DishDetail = (props) => {
+  const { dish } = props;
 
-    console.log("Dish detail rendered")
-    console.log(this.props);
-    return (
-      <div className="row">
-        <div className="col-12 col-md-5 m-1">
-          <RenderDetails dish={dish} />
-        </div>   
-        <div className="col-12 col-md-5 m-1">
-          <RenderComments dish={dish} />
-        </div>         
+  return (
+    <div className="row">
+      <div className="col-12 col-md-5 m-1">
+        <RenderDetails dish={dish} /> 
+      </div>    
+      <div className="col-12 col-md-5 m-1">
+        <RenderComments dish={dish} /> 
       </div>
-    )
-  }
+    </div>
+
+  )
 }
 
 export default DishDetail;
