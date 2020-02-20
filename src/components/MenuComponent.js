@@ -1,30 +1,12 @@
 import React from 'react'; // allows me to create React component
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
-import DishDetail from './DishdetailComponent.js';
 
 class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedDish: null,
-    }
-  }
-
-  componentDidMount() {
-  }
-
-  onDishSelect(dish) {
-    this.setState({
-      selectedDish: dish
-    });
-  }
-
   render() {
-    const { selectedDish } = this.state;
     const menu = this.props.dishes.map(dish => {
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
-          <Card onClick={() => this.onDishSelect(dish)}>
+          <Card onClick={() => this.props.onClick(dish.id)}>
             <CardImg wdith="100%" src={dish.image} alt={dish.name} />
             <CardImgOverlay>
               <CardTitle>{dish.name}</CardTitle>
@@ -39,7 +21,6 @@ class Menu extends React.Component {
         <div className="row">
           {menu}
         </div>
-        <DishDetail dish={selectedDish} />
       </div>
     );
   }
