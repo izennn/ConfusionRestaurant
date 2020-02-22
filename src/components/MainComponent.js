@@ -23,7 +23,7 @@ class Main extends Component {
   }
 
   render() {
-    const { dishes, promotions, leaders } = this.state;
+    const { dishes, comments, promotions, leaders } = this.state;
 
     const HomePage = () => {
       return (
@@ -35,6 +35,15 @@ class Main extends Component {
       )
     }    
 
+    const DishWithId = ({ match }) => {
+      return (
+        <DishDetail 
+          dish={dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]} 
+          comments={comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
+        />
+      );
+    }
+
     return (
       <div>
         <Header />
@@ -42,8 +51,7 @@ class Main extends Component {
           <Route path="/home" component={HomePage} />
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes}/>} /> 
           <Route exact path='/contactus' component={Contact} />
-          {/* turning Menu into func component allows props to be passed to it */}
-          {/* <Route exact path="/dish" component={() => <DishDetail />} /> */}
+          <Route path="/menu/:dishId" component={DishWithId} />
           <Redirect to='/home' />
         </Switch>
         <Footer />
