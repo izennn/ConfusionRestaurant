@@ -3,22 +3,35 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './HomeComponent';
 import Header from './HeaderComponent'
 import Footer from './FooterComponent';
+import Contact from './ContactComponent';
 import Menu from './MenuComponent';
 import DishDetail from './DishdetailComponent';
 import { DISHES } from '../shared/dishes';
+import { COMMENTS} from '../shared/comments';
+import { PROMOTIONS } from '../shared/promotions';
+import { LEADERS } from '../shared/leaders';
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
         dishes: DISHES,
+        comments: COMMENTS,
+        promotions: PROMOTIONS,
+        leaders: LEADERS
     };
   }
 
   render() {
+    const { dishes, promotions, leaders } = this.state;
+
     const HomePage = () => {
       return (
-        <Home />
+        <Home 
+          dish={dishes.filter((dish) => dish.featured)[0]}
+          promotion={promotions.filter((p) => p.featured)[0]}
+          leader={leaders.filter((leader) => leader.featured)[0]}
+        />
       )
     }    
 
@@ -28,6 +41,7 @@ class Main extends Component {
         <Switch>
           <Route path="/home" component={HomePage} />
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes}/>} /> 
+          <Route exact path='/contactus' component={Contact} />
           {/* turning Menu into func component allows props to be passed to it */}
           {/* <Route exact path="/dish" component={() => <DishDetail />} /> */}
           <Redirect to='/home' />
