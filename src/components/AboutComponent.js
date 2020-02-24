@@ -12,7 +12,7 @@ function About(props) {
             return (
               <Media key={leaderID}>
                 <img className="mr-3" src={leader.image} alt={leader.name} /> 
-                <div classname="media-body">
+                <div className="media-body">
                   <h4 className="mt-0">{leader.name}</h4> 
                   <p>{leader.designation}</p>
                   <p>{leader.description}</p>
