@@ -28,7 +28,8 @@ class Contact extends React.Component {
     handleSubmit(event) {
         console.log("Current state: " + JSON.stringify(this.state));
         alert("Current state: " + JSON.stringify(this.state));
-        event.preventDefault() // the default behavior is to go to the "next page"
+        // the default behavior is to go to the "next page"
+        // event.preventDefault();
     }
 
     render() {
